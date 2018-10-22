@@ -47,7 +47,6 @@ const updateUser = (payload, id) => {
 
 const delUser = (id) => {
   let users = usersQuery.delUser(id)
-
   return users.then(result => {
     return !result
       ? { error: 'error retrieving users', status: 404 }
