@@ -45,9 +45,8 @@ const updateUser = (payload, id) => {
   })
 }
 
-const deleteUser = (payload, id) => {
-  console.log('Hey!!!! I am model')
-  let users = usersQuery.deleteUser(payload, id)
+const delUser = (id) => {
+  let users = usersQuery.delUser(id)
 
   return users.then(result => {
     return !result
@@ -61,5 +60,5 @@ module.exports = {
     findUser,
     createUser,
     updateUser,
-    deleteUser
+    delUser
   }

@@ -52,10 +52,9 @@ const updateUser = (req, res, next) => {
 
 // delete users 
 const deleteUser = (req, res, next) => {
-  let payload = req.body
+  
   let id = req.params.id
-  console.log(payload)
-  let promise = model.deleteUser(payload, id)
+  let promise = model.delUser(id)
 
   promise.then(result => {
     return result.error ? next(result) : res.status(200).json(result)
