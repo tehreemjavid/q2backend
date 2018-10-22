@@ -1,35 +1,31 @@
-exports.seed = function(knex, Promise) {
+exports.seed = function (knex, Promise) {
   // Deletes ALL existing entries
   return knex('boards')
     .del()
-    .then(function() {
+    .then(function () {
       // Inserts seed entries
-      return knex('boards').insert([
-        {
-          id: 1,
+      return knex('boards').insert([{
           user_id: 2,
           name: 'Tom',
           description: 'Myspace'
-         
-          },
 
-          {
-            id: 2,
-            user_id: 1,
-            name: 'Tom',
-            description: 'Myspace'
-           
-            },
-  
+        },
+
         {
-          id: 3,
+          user_id: 1,
+          name: 'Tom',
+          description: 'Myspace'
+
+        },
+
+        {
           user_id: 2,
           name: 'Tom',
           description: 'Myspace'
-         
-          }
+
+        }
 
       ])
     })
-    
+
 }

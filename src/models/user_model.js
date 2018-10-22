@@ -2,16 +2,64 @@ const usersQuery = require('../queries/user_query')
 
 const fetchUsers = () => {
   console.log('Hey!!!! I am model')
-  // let users = usersQuery.fetchUsers()
+  let users = usersQuery.fetchUsers()
 
-  // return users.then(result => {
-  //   return result.length < 1
-  //     ? { error: 'error retrieving users', status: 404 }
-  //     : result
-  // })
+  return users.then(result => {
+    return result.length < 1
+      ? { error: 'error retrieving users', status: 404 }
+      : result
+  })
 }
+
+const findUser = (id) => {
+  console.log('Hey!!!! I am model')
+  let users = usersQuery.findUser(id)
+
+  return users.then(result => {
+    return !result
+      ? { error: 'error retrieving users', status: 404 }
+      : result
+  })
+}
+
+const createUser = (payload) => {
+  // console.log('Hey!!!! I am model')
+  let users = usersQuery.createUser(payload)
+
+  return users.then(result => {
+    return !result
+      ? { error: 'error retrieving users', status: 404 }
+      : result
+  })
+}
+
+const updateUser = (payload, id) => { 
+  // console.log('Hey!!!! I am model')
+  let users = usersQuery.updateUser(payload, id)
+
+  return users.then(result => {
+    console.log(result)
+    return !result
+      ? { error: 'error retrieving users', status: 404 }
+      : result
+  })
+}
+
+const deleteUser = (payload, id) => {
+  console.log('Hey!!!! I am model')
+  let users = usersQuery.deleteUser(payload, id)
+
+  return users.then(result => {
+    return !result
+      ? { error: 'error retrieving users', status: 404 }
+      : result
+  })
+}
+
 module.exports = {
-    fetchUsers
-    // findUser,
-    // createUser
+    fetchUsers,
+    findUser,
+    createUser,
+    updateUser,
+    deleteUser
   }
