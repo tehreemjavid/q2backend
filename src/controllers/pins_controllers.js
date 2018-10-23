@@ -66,7 +66,6 @@ const deletePins = (req, res, next) => {
 }
 
 const addPin = (req, res, next) => {
-  console.log(req.body);
   const {pinId, boardId} = req.body;
   let promise = relationshipModel.addPin(pinId, boardId);
 
