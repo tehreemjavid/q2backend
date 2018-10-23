@@ -12,14 +12,14 @@ app.use(cors());
 // import routes
 const userRoute = require('./src/routes/user_route');
 // const boardsRoute = require('./src/routes/boards_route');
-// const pinsRoute = require('./src/routes/pins_route');
+const pinsRoute = require('./src/routes/pins_route');
 // const board_pinsRoute = require('./src/routes/board_pins_route');
 
 //using route files when specified route is reached
 app.use('/user', userRoute);
 // app.use('/boards', boardsRoute);
 
-// app.use('/boards', pinsRoute);
+app.use('/pins', pinsRoute);
 // app.use('/boards', board_pinsRoute);
 
 //Error-handling 

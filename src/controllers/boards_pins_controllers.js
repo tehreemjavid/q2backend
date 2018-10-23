@@ -1,7 +1,7 @@
-const model = require('../models/user_model');
+const model = require('../models/board_pins_model');
 
-const fetchUsers = (req, res, next) => {
-    let promise = model.fetchUsers()
+const fetchBoardPins = (req, res, next) => {
+    let promise = model.fetchBoardPins()
 
     promise.then(result => {
       return result.error ? next(result) : res.status(200).json(result)
@@ -11,9 +11,9 @@ const fetchUsers = (req, res, next) => {
     })
 }
 
-const findUser = (req, res, next) => {
+const findBoardPins = (req, res, next) => {
  let id = req.params.id
-  let promise = model.findUser(id)
+  let promise = model.findBoardPins(id)
 
   promise.then(result => {
     return result.error ? next(result) : res.status(200).json(result)
@@ -23,9 +23,9 @@ const findUser = (req, res, next) => {
   })
 }
 //  create 
-  const createUser = (req, res, next) => {
+  const createBoardPins = (req, res, next) => {
   let payload = req.body
-  let promise = model.createUser(payload)
+  let promise = model.createBoardPins(payload)
 
   promise.then(result => {
     return result.error ? next(result) : res.status(200).json(result)
@@ -35,12 +35,12 @@ const findUser = (req, res, next) => {
   })
 }
 
-// update users
-const updateUser = (req, res, next) => {
+// update board_pins
+const updateBoardPins = (req, res, next) => {
   let payload = req.body
   let id = req.params.id
   console.log(payload)
-  let promise = model.updateUser(payload, id)
+  let promise = model.updateBoardPins(payload, id)
 
   promise.then(result => {
     return result.error ? next(result) : res.status(200).json(result)
@@ -50,8 +50,8 @@ const updateUser = (req, res, next) => {
   })
 }
 
-// delete users 
-const deleteUser = (req, res, next) => {
+// delete board_pins 
+const deleteBoardPins = (req, res, next) => {
   
   let id = req.params.id
   let promise = model.delUser(id)
@@ -66,9 +66,9 @@ const deleteUser = (req, res, next) => {
 
 
 module.exports = {
-    fetchUsers,
-    findUser,
-    createUser,
-    updateUser,
-    deleteUser
+    fetchBoardPins,
+    findBoardPins,
+    createBoardPins,
+    updateBoardPins,
+    deleteBoardPins
 };

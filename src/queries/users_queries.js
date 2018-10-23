@@ -1,4 +1,4 @@
-const knex = require('./db')
+const knex = require('../queries/db')
 
 fetchUsers = () => {
   return knex('users')
@@ -50,7 +50,7 @@ const updateUser = (payload, id) => {
 
 // delete the user
 
-const delUser = (id) => {
+const deleteUser = (id) => {
   return knex('users')
     .where('id', id)
     .del()
@@ -61,5 +61,5 @@ module.exports = {
   findUser,
   createUser,
   updateUser,
-  delUser
+  deleteUser
 }

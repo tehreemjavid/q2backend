@@ -1,4 +1,4 @@
-const usersQuery = require('../queries/user_query')
+const usersQuery = require('../queries/users_queries')
 
 const fetchUsers = () => {
   console.log('Hey!!!! I am model')
