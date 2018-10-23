@@ -64,11 +64,26 @@ const deleteUser = (req, res, next) => {
   })
 }
 
+// get User boards
+
+const getUserBoardsById = (req, res, next) => {
+  let id = req.params.id
+  let promise = model.getUserBoardsById(id)
+ 
+  promise.then(result => {
+    return result.error ? next(result) : res.status(200).json(result)
+  })
+  promise.catch(error => {
+    next(error)
+  })
+  
+}
 
 module.exports = {
     fetchUsers,
     findUser,
     createUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    getUserBoardsById
 };

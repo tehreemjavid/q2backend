@@ -1,4 +1,4 @@
-const board_pinsQuery = require('../queries/board_pins_query')
+const board_pinsQuery = require('../queries/board_pins_queries')
 
 const fetchBoardPins = () => {
   console.log('Hey!!!! I am model')
@@ -54,10 +54,21 @@ const delPins = (id) => {
   })
 }
 
+const addPin = (pinId, boardId) => {
+  console.log(pinId, boardId);
+  let query = board_pinsQuery.createBoardPins(pinId, boardId);
+  return query.then(result => {
+    return !result
+      ? { error: 'error retrieving boardPins', status: 404 }
+      : result
+  });
+}
+
 module.exports = {
     fetchBoardPins,
     findBoardPins,
     createBoardPins,
     updateBoardPins,
-    delBoardPins
+    delPins,
+    addPin
   }

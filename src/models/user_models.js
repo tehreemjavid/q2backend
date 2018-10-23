@@ -54,10 +54,21 @@ const delUser = (id) => {
   })
 }
 
+const getUserBoardsById = (id) => {
+  let boards = usersQuery.getUserBoardsById(id)
+  return boards.then(result => {
+    return !result
+      ? { error: 'error retrieving boards', status: 404 }
+      : result
+  })
+}
+
+
 module.exports = {
     fetchUsers,
     findUser,
     createUser,
     updateUser,
-    delUser
+    delUser, 
+    getUserBoardsById
   }

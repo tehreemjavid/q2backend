@@ -11,11 +11,11 @@ findBoardPins = (id) => {
 
 
 //Insert new board_pin information
-const createBoardPins = (payload) => {
+const createBoardPins = (pinId, boardId) => {
   return knex('board_pins')
     .insert({
-      pin_id: payload.pin_id,
-      board_id: payload.board_id,
+      pin_id: pinId,
+      board_id: boardId,
     })
     .returning('*')
     .then(result => {

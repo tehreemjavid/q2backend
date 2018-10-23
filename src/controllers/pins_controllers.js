@@ -1,4 +1,5 @@
 const model = require('../models/pins_models');
+const relationshipModel = require('../models/board_pins_models');
 
 const fetchPins = (req, res, next) => {
     let promise = model.fetchPins()
@@ -64,11 +65,25 @@ const deletePins = (req, res, next) => {
   })
 }
 
+const addPin = (req, res, next) => {
+  console.log(req.body);
+  const {pinId, boardId} = req.body;
+  let promise = relationshipModel.addPin(pinId, boardId);
+
+  promise.then(result => {
+    return result.error ? next(result) : res.status(200).json(result)
+  })
+  promise.catch(error => {
+    next(error)
+  })  
+}
+
 
 module.exports = {
     fetchPins,
     findPins,
     createPins,
     updatePins,
-    deletePins
+    deletePins,
+    addPin
 };

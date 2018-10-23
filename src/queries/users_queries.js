@@ -56,10 +56,17 @@ const deleteUser = (id) => {
     .del()
 };
 
+// Get boards from user
+const getUserBoardsById = (id) => {
+  return knex('boards').where('user_id', id)
+}
+
+
 module.exports = {
   fetchUsers,
   findUser,
   createUser,
   updateUser,
-  deleteUser
+  deleteUser,
+  getUserBoardsById
 }

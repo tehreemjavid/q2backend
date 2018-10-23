@@ -9,4 +9,6 @@ router.post('/', ctrl.createUser);
 router.put('/:id', ctrl.updateUser);
 router.delete('/:id', ctrl.deleteUser);
 
+router.get('/:id/boards', ctrl.getUserBoardsById);
+
 module.exports = router;
