@@ -79,6 +79,12 @@ const getUserBoardsById = (req, res, next) => {
   
 }
 
+// have user login
+
+const loginUser = (req, res, next) => {
+  const credentials = req.body
+}
+
 module.exports = {
     fetchUsers,
     findUser,
